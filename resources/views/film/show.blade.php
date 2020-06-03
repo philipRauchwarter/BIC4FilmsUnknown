@@ -2,9 +2,7 @@
 
 
 @section('content')
-    <section class="section">
-        <div class="container">
-            <h1>Show film</h1>
-        </div>
+    <section class="section is-fullwidth">
+        <category :category="{{ $category }}" :user="{{ Auth::user() }}" :blogs="{{ $category->blogs->load(['user','messages']) }}"></category>
     </section>
 @endsection

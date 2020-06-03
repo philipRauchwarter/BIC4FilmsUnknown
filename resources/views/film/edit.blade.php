@@ -2,9 +2,5 @@
 
 
 @section('content')
-    <section class="section">
-        <div class="container">
-            <h1>Edit film</h1>
-        </div>
-    </section>
+
 @endsection
