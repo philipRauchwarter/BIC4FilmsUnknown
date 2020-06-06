@@ -3,8 +3,8 @@
 
 @section('content')
     <section class="section">
-        <div class="container">
-            <h1>Create actor</h1>
-        </div>
+        <section class="section is-fullwidth">
+            <AEdit :all-films="{{ $actors }}" :current-user="{{ Auth::user() }}"></AEdit>
+        </section>
     </section>
 @endsection

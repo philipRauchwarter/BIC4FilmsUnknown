@@ -3,8 +3,8 @@
 
 @section('content')
     <section class="section">
-        <div class="container">
-            <h1>Search actor</h1>
-        </div>
+        <section class="section is-fullwidth">
+            <ASearch :all-films="{{ $actors }}" :current-user="{{ Auth::user() }}"></ASearch>
+        </section>
     </section>
 @endsection

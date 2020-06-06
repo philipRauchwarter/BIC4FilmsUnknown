@@ -3,8 +3,8 @@
 
 @section('content')
     <section class="section">
-        <div class="container">
-            <h1>List actors</h1>
-        </div>
+        <section class="section is-fullwidth">
+            <actors :all-films="{{ $actors }}" :current-user="{{ Auth::user() }}"></actors>
+        </section>
     </section>
 @endsection

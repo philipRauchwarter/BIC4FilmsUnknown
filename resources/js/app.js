@@ -23,6 +23,12 @@ window.Vue = vue;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('query-message', require('./components/base/QueryMessage.vue').default);
 Vue.component('films', require('./components/FilmListComponent.vue').default);
+Vue.component('FEdit', require('./components/FilmEditComponent.vue').default);
+Vue.component('FCreate', require('./components/FilmCreateComponent.vue').default);
+Vue.component('actors', require('./components/ActorListComponent').default);
+Vue.component('AEdit', require('./components/ActorEditComponent').default);
+Vue.component('ACreate', require('./components/ActorCreateComponent').default);
+Vue.component('ASearch', require('./components/ActorSearchComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
