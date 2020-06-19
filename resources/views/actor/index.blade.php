@@ -4,7 +4,7 @@
 @section('content')
     <section class="section">
         <section class="section is-fullwidth">
-            <actors :all-films="{{ $actors }}" :current-user="{{ Auth::user() }}"></actors>
+            <actors :all-actors="{{ $actors }}" :current-user="{{ Auth::user() }}"></actors>
         </section>
     </section>
 @endsection

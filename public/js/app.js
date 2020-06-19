@@ -1969,8 +1969,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ActorSearchComponent"
+  name: "ActorSearchComponent",
+  data: {
+    search: '',
+    postList: [],
+    computed: {
+      filteredList: function filteredList() {
+        var _this = this;
+
+        return this.postList.filter(function (actor) {
+          return actor.name.toLowerCase().includes(_this.search.toLowerCase());
+        });
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -19863,7 +19890,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { attrs: { id: "app" } }, [
+    _c("div", { staticClass: "search-wrapper" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.search,
+            expression: "search"
+          }
+        ],
+        attrs: { type: "text", placeholder: "Search title.." },
+        domProps: { value: _vm.search },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.search = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", [_vm._v("Search title:")])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "wrapper" },
+      _vm._l(_vm.filteredList, function(actor) {
+        return _c("div", { staticClass: "card" }, [
+          _c(
+            "a",
+            { attrs: { href: "/actor/" + actor.slug, target: "_blank" } },
+            [
+              _c("small", [_vm._v("Name: " + _vm._s(actor.author))]),
+              _vm._v(
+                "\n                " +
+                  _vm._s(actor.description) +
+                  "\n            "
+              )
+            ]
+          )
+        ])
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -32278,10 +32352,10 @@ Vue.component('query-message', __webpack_require__(/*! ./components/base/QueryMe
 Vue.component('films', __webpack_require__(/*! ./components/FilmListComponent.vue */ "./resources/js/components/FilmListComponent.vue")["default"]);
 Vue.component('FEdit', __webpack_require__(/*! ./components/FilmEditComponent.vue */ "./resources/js/components/FilmEditComponent.vue")["default"]);
 Vue.component('FCreate', __webpack_require__(/*! ./components/FilmCreateComponent.vue */ "./resources/js/components/FilmCreateComponent.vue")["default"]);
-Vue.component('actors', __webpack_require__(/*! ./components/ActorListComponent */ "./resources/js/components/ActorListComponent.vue")["default"]);
-Vue.component('AEdit', __webpack_require__(/*! ./components/ActorEditComponent */ "./resources/js/components/ActorEditComponent.vue")["default"]);
-Vue.component('ACreate', __webpack_require__(/*! ./components/ActorCreateComponent */ "./resources/js/components/ActorCreateComponent.vue")["default"]);
-Vue.component('ASearch', __webpack_require__(/*! ./components/ActorSearchComponent */ "./resources/js/components/ActorSearchComponent.vue")["default"]);
+Vue.component('actors', __webpack_require__(/*! ./components/ActorListComponent.vue */ "./resources/js/components/ActorListComponent.vue")["default"]);
+Vue.component('AEdit', __webpack_require__(/*! ./components/ActorEditComponent.vue */ "./resources/js/components/ActorEditComponent.vue")["default"]);
+Vue.component('ACreate', __webpack_require__(/*! ./components/ActorCreateComponent.vue */ "./resources/js/components/ActorCreateComponent.vue")["default"]);
+Vue.component('ASearch', __webpack_require__(/*! ./components/ActorSearchComponent.vue */ "./resources/js/components/ActorSearchComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
