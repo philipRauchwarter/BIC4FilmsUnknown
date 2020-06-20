@@ -39,7 +39,7 @@
     export default {
         name: "ActorComponent",
         props: ['actor'],
-        data() {
+        data: function () {
             return {}
         },
         methods: {},

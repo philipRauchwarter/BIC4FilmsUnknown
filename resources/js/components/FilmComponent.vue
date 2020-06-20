@@ -39,7 +39,7 @@
     export default {
         name: "FilmComponent",
         props: ['film'],
-        data() {
+        data: function () {
             return {}
         },
         methods: {},

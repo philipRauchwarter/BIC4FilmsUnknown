@@ -26,7 +26,7 @@
         components: {
             FilmComponent
         },
-        data() {
+        data: function () {
             return {
                 films: [],
             }

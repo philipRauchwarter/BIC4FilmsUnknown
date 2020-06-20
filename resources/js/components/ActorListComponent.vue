@@ -24,7 +24,7 @@
             }
         },
         components: {ActorComponent},
-        data() {
+        data: function () {
             return {
                 actors: [],
             }
