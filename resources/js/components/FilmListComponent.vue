@@ -3,11 +3,12 @@
         <div v-for="film in films">
             <film-component :film="film"></film-component>
         </div>
-        </div>
+    </div>
 </template>
 
 <script>
     import FilmComponent from "./FilmComponent";
+
     export default {
         name: "FilmListComponent",
         props: {
@@ -31,15 +32,7 @@
             }
         },
         methods: {
-            openDeleteModal(film) {
-                this.$emit('open-modal',
-                    {
-                        id: film.id,
-                        title: film.title,
-                        content: 'Do you really want to delete this Film?',
-                        url: '/film/' + film.slug
-                    });
-            }
+
         },
         created() {
             this.films = this.filmList;
