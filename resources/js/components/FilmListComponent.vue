@@ -1,48 +1,40 @@
 <template>
-    <table class="table is-fullwidth is-hoverable">
-        <thead>
-        <tr class="title is-4">
-            <table-element element-type="th">Name</table-element>
-            <table-element element-type="th">Beschreibung</table-element>
-            <!--<table-element element-type="th" v-if="showCategory">Category</table-element>
-            <table-element element-type="th" text-class="has-text-centered">Replies</table-element>-->
-            <table-element element-type="th">Created</table-element>
-            <table-element element-type="th">Modified</table-element>
-            <table-element element-type="th"></table-element>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="film in films" :key="film.id">
-            <table-element element-type="td">
-                <a :href="'/film/' + film.slug"
-                   :title="film.name">
-                    <i class="fa fa-comment"></i>&nbsp;{{ film.name }}
-                </a>
-            </table-element>
-            <table-element element-type="td">{{ film.name }}</table-element>
-            <!--<table-element element-type="td" v-if="showCategory">{{ film.description }}</table-element>
-            <table-element element-type="td" text-class="has-text-centered">{{ film.messages.length }}
-            </table-element>-->
-            <table-element element-type="td">{{ film.created_at | moment('DD.MM.YYYY') }}</table-element>
-            <table-element element-type="td">{{ film.updated_at | moment('DD.MM.YYYY') }}</table-element>
-            <!--<table-element element-type="td">
-                <p class="buttons" v-if="user.id === film.user.id">
-                    <a :href="'/film/' + film.slug + '/edit'" class="button is-info is-outlined is-small">
-                            <span class="icon">
-                              <i class="fa fa-edit"></i>
-                            </span>
-                    </a>
-                    <button v-if="!film.name.length" @click="openDeleteModal(film)"
-                            class="button is-danger is-outlined is-small">
-                            <span class="icon">
-                              <i class="fa fa-remove"></i>
-                            </span>
-                    </button>
-                </p>
-            </table-element> -->
-        </tr>
-        </tbody>
-    </table>
+    <div class="column">
+    <div class="film" v-for="film in films" :key="film.id">
+        <div class="box">
+            <article class="media">
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong>{{film.name}}</strong> <small>{{film.handle}}</small>
+                            <br>
+                            {{film.description}}
+                        </p>
+                    </div>
+                    <div class="level">
+                        <div class="level-left">
+                            <div class="level-item">
+                                Created: {{film.created_at | moment('DD.MM.YYYY') }}
+                                <br>
+                                Last Modified: {{film.updated_at | moment('DD.MM.YYYY') }}
+                            </div>
+                        </div>
+                        <div class="level-right">
+                            <div class="control">
+                                <button class="button is-success is-outlined" >
+                                    Modify
+                                </button>
+                                <button class="button is-danger is-outlined">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    </div>
 </template>
 
 <script>
