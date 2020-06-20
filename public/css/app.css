@@ -11718,7 +11718,8 @@ label.panel-block:hover {
 }
 
 .main {
-  background: #F7F7F7;
+  background: #e6ecf1;
+  text-align: center;
 }
 
 .is-fullheight.columns {
@@ -11761,5 +11762,20 @@ label.panel-block:hover {
 
 .hero.is-fullheight-with-navbar {
   min-height: calc(100vh - 6.75rem);
+}
+
+.film {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+
+.box {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.level-item {
+  color: #b3b3cc;
 }
 

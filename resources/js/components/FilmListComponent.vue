@@ -6,7 +6,7 @@
                 <div class="media-content">
                     <div class="content">
                         <p>
-                            <strong>{{film.name}}</strong> <small>{{film.handle}}</small>
+                            <strong>{{film.name}}</strong> <small>{{film.actor.name}}</small>
                             <br>
                             {{film.description}}
                         </p>
