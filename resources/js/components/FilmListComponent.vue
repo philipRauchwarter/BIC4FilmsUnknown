@@ -1,51 +1,21 @@
 <template>
     <div class="column">
-    <div class="film" v-for="film in films" :key="film.id">
-        <div class="box">
-            <article class="media">
-                <div class="media-content">
-                    <div class="content">
-                        <p>
-                            <strong>{{film.name}}</strong> <small>{{film.actor.name}}</small>
-                            <br>
-                            {{film.description}}
-                        </p>
-                    </div>
-                    <div class="level">
-                        <div class="level-left">
-                            <div class="level-item">
-                                Created: {{film.created_at | moment('DD.MM.YYYY') }}
-                                <br>
-                                Last Modified: {{film.updated_at | moment('DD.MM.YYYY') }}
-                            </div>
-                        </div>
-                        <div class="level-right">
-                            <div class="control">
-                                <button class="button is-success is-outlined" >
-                                    Modify
-                                </button>
-                                <button class="button is-danger is-outlined">
-                                    Delete
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
+        <div v-for="film in films">
+            <film-component :film="film"></film-component>
         </div>
-    </div>
-    </div>
+        </div>
 </template>
 
 <script>
+    import FilmComponent from "./FilmComponent";
     export default {
         name: "FilmListComponent",
         props: {
             filmList: {
-                required: true
+                //required: true
             },
             user: {
-                required: true
+                //required: true
             },
             showCategory: {
                 required: false,
@@ -53,11 +23,11 @@
             }
         },
         components: {
-            //TableElement
+            FilmComponent
         },
         data() {
             return {
-                films: []
+                films: [],
             }
         },
         methods: {
