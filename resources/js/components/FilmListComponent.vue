@@ -13,10 +13,10 @@
         name: "FilmListComponent",
         props: {
             filmList: {
-                //required: true
+                required: false
             },
             user: {
-                //required: true
+                required: false
             },
             showCategory: {
                 required: false,
