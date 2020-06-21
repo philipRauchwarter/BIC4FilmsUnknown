@@ -2,7 +2,9 @@
 
 
 @section('content')
+
     <section class="section">
-        <FCreate :current-user="{{ Auth::user() }}"> </FCreate>
+        <film-create :current-user="{{ Auth::user() }}"> </film-create>
     </section>
 @endsection
+

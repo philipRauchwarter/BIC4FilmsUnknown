@@ -3,6 +3,10 @@
 
 @section('content')
     <section class="section">
-        <FCreate :current-user="{{ Auth::user() }}"> </FCreate>
+        <div class="container">
+            <h2 class="title">Create a new film</h2>
+        </div>
+        <film-create></film-create>
     </section>
+
 @endsection
