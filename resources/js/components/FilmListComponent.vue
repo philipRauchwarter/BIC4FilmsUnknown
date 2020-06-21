@@ -35,7 +35,9 @@
 
         },
         created() {
-            this.films = this.filmList;
+            axios.get('./list/film')
+                .then(response => this.films = response.data)
+                .catch(e => console.log(e));
         },
         watch: {
             filmList(newVal) {

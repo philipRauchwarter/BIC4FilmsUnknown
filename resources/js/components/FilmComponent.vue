@@ -20,12 +20,12 @@
                         </div>
                         <div class="level-right">
                             <div class="control">
-                                <button @click="modifyFilm(film.id)" class="button is-success is-outlined">
+                                <b-button @click="modifyFilm(film.id)" class="button is-success is-outlined">
                                     Modify
-                                </button>
-                                <button @click="deleteFilm(film.id)" class="button is-danger is-outlined">
+                                </b-button>
+                                <b-button @click="deleteFilm(film.id)" class="button is-danger is-outlined">
                                     Delete
-                                </button>
+                                </b-button>
                             </div>
                         </div>
                     </div>

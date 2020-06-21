@@ -5,7 +5,7 @@
                 <div class="media-content">
                     <div class="content">
                         <p>
-                            <strong>{{actor.name}}</strong> <small>{{actor.film()}}</small>
+                            <strong>{{actor.name}}</strong> <small>{{actor.film_id}}</small>
                             <br>
                             {{actor.description}}
                         </p>
@@ -20,12 +20,12 @@
                         </div>
                         <div class="level-right">
                             <div class="control">
-                                <button @click="modifyActor(actor.id)" class="button is-success is-outlined">
+                                <b-button @click="modifyActor(actor.id)" class="button is-success is-outlined">
                                     Modify
-                                </button>
-                                <button @click="deleteActor(actor.id)" class="button is-danger is-outlined">
+                                </b-button>
+                                <b-button @click="deleteActor(actor.id)" class="button is-danger is-outlined">
                                     Delete
-                                </button>
+                                </b-button>
                             </div>
                         </div>
                     </div>

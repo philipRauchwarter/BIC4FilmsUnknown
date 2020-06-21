@@ -1,7 +1,7 @@
 <template>
     <div class="column">
-        <div v-for="film in films">
-            <actor-component :film="film"></actor-component>
+        <div v-for="actor in actors">
+            <actor-component :actor="actor"></actor-component>
         </div>
     </div>
 </template>
@@ -12,7 +12,7 @@
     export default {
         name: "ActorListComponent",
         props: {
-            actorListList: {
+            actorList: {
                 required: false,
             },
             user: {
@@ -33,11 +33,12 @@
 
         },
         created() {
-            this.films = this.filmList;
-        },
+            axios.get('./list/actor')
+                .then(response => this.actors = response.data)
+                .catch(e => console.log(e));        },
         watch: {
-            filmList(newVal) {
-                this.films = newVal;
+            actorList(newVal) {
+                this.actors = newVal;
             }
         }
     }
