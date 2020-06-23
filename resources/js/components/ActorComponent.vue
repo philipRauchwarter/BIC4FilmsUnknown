@@ -5,7 +5,7 @@
                 <div class="media-content">
                     <div class="content">
                         <p>
-                            <strong>{{actor.name}}</strong> <small>{{actor.film_id}}</small>
+                            <strong>{{actor.name}}</strong> <small>Played in: {{actor.film.name}}</small>
                             <br>
                             {{actor.description}}
                         </p>
