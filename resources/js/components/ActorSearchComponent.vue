@@ -1,16 +1,11 @@
 <template>
     <div id="app">
-        <div class="search-wrapper">
-            <input type="text" v v-on="onchange: search" placeholder="Search Actor..." />
-            <label>Search Actor:</label>
+        <div class="input-container">
+            <input type="text" v-on:keyup.enter="filteredList" placeholder="Type a name" v-model="search" />
         </div>
-        <div class="wrapper">
-            <div class="card" v-for="actor in filteredList">
-                <a v-bind:href="'/actor/'+actor.slug" target="_blank">
-                    <!--<img v-bind:src="post.img"/>-->
-                    <small>Name: {{ actor.author }}</small>
-                    {{ actor.description }}
-                </a>
+        <div class="column">
+            <div v-for="actor in filList">
+                <actor-component :actor="actor"></actor-component>
             </div>
         </div>
     </div>
@@ -19,27 +14,29 @@
 <script>
     export default {
         name: "ActorSearchComponent",
-        data: function() {
+        data: function () {
             return {
+                search:"",
                 actors: [],
-                filteredList: []
+                filList: [],
+
             }
 
         },
-        filteredList() {
-                    return this.postList.filter(actor => {
-                        return actor.name.toLowerCase().includes(this.search.toLowerCase())
-                    })
-        },
         created() {
-                axios.get('../list/actor')
-                    .then(response => this.actors = response.data)
-                    .catch(e => console.log(e));
+            axios.get('../list/actor')
+                .then(response => this.actors = response.data)
+                .catch(e => console.log(e+"test"));
         },
-        methods:
-            search(){
-                actor.name.toLowerCase().includes(this.search.toLowerCase())
+        methods: {
+
+            filteredList: function () {
+                this.filList=[];
+                this.filList=this.actors.filter(actor => {
+                    return actor.name.toLowerCase().includes(this.search.toLowerCase())
+                })
             }
+        }
     }
 
 </script>

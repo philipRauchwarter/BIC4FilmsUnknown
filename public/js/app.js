@@ -2130,24 +2130,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ActorSearchComponent",
-  data: {
-    search: '',
-    postList: [],
-    computed: {
-      filteredList: function filteredList() {
-        var _this = this;
+  data: function data() {
+    return {
+      search: "",
+      actors: [],
+      filList: []
+    };
+  },
+  created: function created() {
+    var _this = this;
 
-        return this.postList.filter(function (actor) {
-          return actor.name.toLowerCase().includes(_this.search.toLowerCase());
-        });
-      }
+    axios.get('../list/actor').then(function (response) {
+      return _this.actors = response.data;
+    })["catch"](function (e) {
+      return console.log(e + "test");
+    });
+  },
+  methods: {
+    filteredList: function filteredList() {
+      var _this2 = this;
+
+      this.filList = [];
+      this.filList = this.actors.filter(function (actor) {
+        return actor.name.toLowerCase().includes(_this2.search.toLowerCase());
+      });
     }
   }
 });
@@ -20043,7 +20051,9 @@ var render = function() {
             _c("p", [
               _c("strong", [_vm._v(_vm._s(_vm.actor.name))]),
               _vm._v(" "),
-              _c("small", [_vm._v(_vm._s(_vm.actor.film_id))]),
+              _c("small", [
+                _vm._v("Played in: " + _vm._s(_vm.actor.film.name))
+              ]),
               _vm._v(" "),
               _c("br"),
               _vm._v(
@@ -20321,7 +20331,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "app" } }, [
-    _c("div", { staticClass: "search-wrapper" }, [
+    _c("div", { staticClass: "input-container" }, [
       _c("input", {
         directives: [
           {
@@ -20331,9 +20341,18 @@ var render = function() {
             expression: "search"
           }
         ],
-        attrs: { type: "text", placeholder: "Search title.." },
+        attrs: { type: "text", placeholder: "Type a name" },
         domProps: { value: _vm.search },
         on: {
+          keyup: function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.filteredList($event)
+          },
           input: function($event) {
             if ($event.target.composing) {
               return
@@ -20341,29 +20360,18 @@ var render = function() {
             _vm.search = $event.target.value
           }
         }
-      }),
-      _vm._v(" "),
-      _c("label", [_vm._v("Search title:")])
+      })
     ]),
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "wrapper" },
-      _vm._l(_vm.filteredList, function(actor) {
-        return _c("div", { staticClass: "card" }, [
-          _c(
-            "a",
-            { attrs: { href: "/actor/" + actor.slug, target: "_blank" } },
-            [
-              _c("small", [_vm._v("Name: " + _vm._s(actor.author))]),
-              _vm._v(
-                "\n                " +
-                  _vm._s(actor.description) +
-                  "\n            "
-              )
-            ]
-          )
-        ])
+      { staticClass: "column" },
+      _vm._l(_vm.filList, function(actor) {
+        return _c(
+          "div",
+          [_c("actor-component", { attrs: { actor: actor } })],
+          1
+        )
       }),
       0
     )
@@ -20441,7 +20449,9 @@ var render = function() {
             _c("p", [
               _c("strong", [_vm._v(_vm._s(_vm.film.name))]),
               _vm._v(" "),
-              _c("small", [_vm._v(_vm._s(_vm.film.id))]),
+              _c("small", [
+                _vm._v("Actors: " + _vm._s(_vm.film.actors.length))
+              ]),
               _vm._v(" "),
               _c("br"),
               _vm._v(
@@ -32907,7 +32917,9 @@ Vue.component("film-create", __webpack_require__(/*! ./components/FilmCreateComp
 Vue.component('actors', __webpack_require__(/*! ./components/ActorListComponent */ "./resources/js/components/ActorListComponent.vue")["default"]);
 Vue.component('AEdit', __webpack_require__(/*! ./components/ActorEditComponent */ "./resources/js/components/ActorEditComponent.vue")["default"]);
 Vue.component('createActor', __webpack_require__(/*! ./components/ActorCreateComponent */ "./resources/js/components/ActorCreateComponent.vue")["default"]);
-Vue.component('ASearch', __webpack_require__(/*! ./components/ActorSearchComponent */ "./resources/js/components/ActorSearchComponent.vue")["default"]);
+Vue.component('asearch', __webpack_require__(/*! ./components/ActorSearchComponent */ "./resources/js/components/ActorSearchComponent.vue")["default"]);
+Vue.component('actor-component', __webpack_require__(/*! ./components/ActorComponent */ "./resources/js/components/ActorComponent.vue")["default"]);
+Vue.component('film-component', __webpack_require__(/*! ./components/FilmComponent */ "./resources/js/components/FilmComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -33967,8 +33979,8 @@ var Form = /*#__PURE__*/function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Technikum\4_Semester\Information Engineering\Projekt\BIC4FilmsUnknown\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Technikum\4_Semester\Information Engineering\Projekt\BIC4FilmsUnknown\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\phili\Documents\FH\IE\BIC4FilmsUnknown\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\phili\Documents\FH\IE\BIC4FilmsUnknown\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

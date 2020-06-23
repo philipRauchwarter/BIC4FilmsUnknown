@@ -3,6 +3,12 @@
 
 @section('content')
     <section class="section is-fullwidth">
-        <category :category="{{ $category }}" :user="{{ Auth::user() }}" :blogs="{{ $category->blogs->load(['user','messages']) }}"></category>
+        <film-component :film="{{ $film }}" :user="{{ Auth::user() }}" :actors="{{ $film->actors->load(['name','description']) }}"></film-component>
     </section>
 @endsection
+<script>
+    import FilmComponent from "../../js/components/FilmComponent";
+    export default {
+        components: {FilmComponent}
+    }
+</script>

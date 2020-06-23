@@ -29,7 +29,9 @@ Vue.component("film-create", require('./components/FilmCreateComponent.vue').def
 Vue.component('actors', require('./components/ActorListComponent').default);
 Vue.component('AEdit', require('./components/ActorEditComponent').default);
 Vue.component('createActor', require('./components/ActorCreateComponent').default);
-Vue.component('ASearch', require('./components/ActorSearchComponent').default);
+Vue.component('asearch', require('./components/ActorSearchComponent').default);
+Vue.component('actor-component', require('./components/ActorComponent').default);
+Vue.component('film-component', require('./components/FilmComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
