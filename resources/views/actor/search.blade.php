@@ -4,7 +4,7 @@
 @section('content')
     <section class="section">
         <section class="section is-fullwidth">
-            <ASearch :current-user="{{ Auth::user() }}"></ASearch>
+            <asearch :current-user="{{ Auth::user() }}"></asearch>
         </section>
     </section>
 @endsection

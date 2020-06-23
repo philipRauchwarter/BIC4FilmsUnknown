@@ -1,8 +1,8 @@
 <template>
     <div id="app">
         <div class="search-wrapper">
-            <input type="text" v-model="search" placeholder="Search title.."/>
-            <label>Search title:</label>
+            <input type="text" v v-on="onchange: search" placeholder="Search Actor..." />
+            <label>Search Actor:</label>
         </div>
         <div class="wrapper">
             <div class="card" v-for="actor in filteredList">
@@ -19,18 +19,29 @@
 <script>
     export default {
         name: "ActorSearchComponent",
-        data: {
-            search: '',
-            postList: [],
-            computed: {
-                filteredList() {
+        data: function() {
+            return {
+                actors: [],
+                filteredList: []
+            }
+
+        },
+        filteredList() {
                     return this.postList.filter(actor => {
                         return actor.name.toLowerCase().includes(this.search.toLowerCase())
                     })
-                }
+        },
+        created() {
+                axios.get('../list/actor')
+                    .then(response => this.actors = response.data)
+                    .catch(e => console.log(e));
+        },
+        methods:
+            search(){
+                actor.name.toLowerCase().includes(this.search.toLowerCase())
             }
-        }
     }
+
 </script>
 
 <style scoped>
