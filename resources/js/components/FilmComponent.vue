@@ -10,6 +10,11 @@
                             {{film.description}}
                         </p>
                     </div>
+                    <div class="column">
+                        <div v-for="actor in film.actors">
+                            <actor-light-component :actor="actor"></actor-light-component>
+                        </div>
+                    </div>
                     <div class="level">
                         <div class="level-left">
                             <div class="level-item">

@@ -4,7 +4,7 @@
 @section('content')
     <section class="section">
         <div class="container">
-            <h1>Show actor</h1>
+            <actor-component :actor="{{ $actor }}"></actor-component>
         </div>
     </section>
 @endsection

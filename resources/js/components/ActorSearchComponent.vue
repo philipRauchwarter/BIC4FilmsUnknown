@@ -1,9 +1,16 @@
 <template>
     <div id="app">
-        <div class="input-container">
-            <input type="text" v-on:keyup.enter="filteredList" placeholder="Type a name" v-model="search" />
-        </div>
         <div class="column">
+        <div class="wrap">
+
+            <div class="search">
+                <input type="text" class="searchTerm" v-on:keyup.enter="filteredList" placeholder="Type a name" v-model="search" />
+                <button type="submit" class="searchButton" @click="filteredList">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+
             <div v-for="actor in filList">
                 <actor-component :actor="actor"></actor-component>
             </div>

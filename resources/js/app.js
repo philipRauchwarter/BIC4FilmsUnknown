@@ -32,6 +32,7 @@ Vue.component('createActor', require('./components/ActorCreateComponent').defaul
 Vue.component('asearch', require('./components/ActorSearchComponent').default);
 Vue.component('actor-component', require('./components/ActorComponent').default);
 Vue.component('film-component', require('./components/FilmComponent').default);
+Vue.component('actor-light-component', require('./components/ActorLightComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
