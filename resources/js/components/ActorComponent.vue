@@ -7,7 +7,7 @@
                         <p>
                             <strong>{{actor.name}}</strong>
                             <br/>
-                            Played in: <a href="ActorComponent.vue"><small>
+                            Played in: <a :href="'./film/' + actor.film.slug"><small>
                             {{actor.film.name}}</small></a>
                             <br>
                             {{actor.description}}
