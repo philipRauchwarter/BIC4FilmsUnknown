@@ -5,7 +5,10 @@
                 <div class="media-content">
                     <div class="content">
                         <p>
-                            <strong>{{actor.name}}</strong> <small>Played in: {{actor.film.name}}</small>
+                            <strong>{{actor.name}}</strong>
+                            <br/>
+                            Played in: <a href="ActorComponent.vue"><small>
+                            {{actor.film.name}}</small></a>
                             <br>
                             {{actor.description}}
                         </p>

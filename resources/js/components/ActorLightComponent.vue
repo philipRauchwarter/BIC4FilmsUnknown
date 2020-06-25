@@ -1,13 +1,9 @@
 <template>
-    <div class="film">
-            <article class="media">
-                <div class="media-content">
-                        <p>
-                            {{actor.name}}
-                        </p>
-                </div>
-            </article>
-        </div>
+    <a href="ActorComponent.vue">
+    <small>
+        {{actor.name}}
+    </small>
+    </a>
 </template>
 
 <script>

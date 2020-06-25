@@ -49,12 +49,12 @@
 .film {
     max-width: 700px;
     margin: 0 auto;
-    padding-bottom: 15px;
+    padding-bottom: 25px;
 }
 
 .box {
     margin-bottom: 0;
-    border-radius: 0;
+    border-radius: 20px;
 }
 
 .level-item {
@@ -95,7 +95,6 @@
     font-size: 20px;
 }
 
-/*Resize the wrap to see the search bar change!*/
 .wrap{
     width: 20%;
     height: 2%;

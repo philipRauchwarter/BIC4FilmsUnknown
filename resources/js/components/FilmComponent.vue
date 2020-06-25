@@ -5,15 +5,15 @@
                 <div class="media-content">
                     <div class="content">
                         <p>
-                            <strong>{{film.name}}</strong> <small>Actors: {{film.actors.length}}</small>
-                            <br>
+                            <strong>{{film.name}}</strong>
+                            <br/>
+                            Actors:
+                            <small v-for="actor in film.actors">
+                                <actor-light-component :actor="actor"></actor-light-component>
+                            </small>
+                            <br/>
                             {{film.description}}
                         </p>
-                    </div>
-                    <div class="column">
-                        <div v-for="actor in film.actors">
-                            <actor-light-component :actor="actor"></actor-light-component>
-                        </div>
                     </div>
                     <div class="level">
                         <div class="level-left">
