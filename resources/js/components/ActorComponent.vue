@@ -47,13 +47,10 @@
         },
         methods: {
             deleteActor(actor) {
-                this.$emit('open-modal',
-                    {
-                        id: actor.id,
-                        title: actor.title,
-                        content: 'Do you really want to delete this actor?',
-                        url: '/actor/' + actor.slug
-                    });
+                axios.delete('./actor/'+actor.slug).then(response => {
+                    console.log(response)
+                });
+                window.location.reload()
             }
         },
     };

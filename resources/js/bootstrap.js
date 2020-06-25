@@ -17,6 +17,7 @@ import DeleteModal from './components/base/DeleteModalComponent';
 window._ = lodash;
 window.axios = axios;
 window.QueryMessage = QueryMessage;
+window.DeleteModal = DeleteModal;
 window.Form = Form;
 
 // Set token in header for axios to keep requests secure
