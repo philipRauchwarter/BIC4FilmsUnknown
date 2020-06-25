@@ -1,5 +1,5 @@
 <template>
-    <a href="actor/">
+    <a :href="'/actor/' + actor.slug">
     <small>
         {{actor.name}}
     </small>

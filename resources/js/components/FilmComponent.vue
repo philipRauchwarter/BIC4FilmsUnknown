@@ -25,10 +25,12 @@
                         </div>
                         <div class="level-right">
                             <div class="control">
-                                <button @click="modifyFilm(film.id)" class="button is-success is-outlined">
-                                    Modify
-                                </button>
-                                <button @click="deleteFilm(film.id)" class="button is-danger is-outlined">
+                                <a :href="'./film/' + film.slug + '/edit'">
+                                    <button class="button is-success is-outlined">
+                                        Modify
+                                    </button>
+                                </a>
+                                <button @click="deleteFilm(film)" class="button is-danger is-outlined">
                                     Delete
                                 </button>
                             </div>
@@ -47,7 +49,14 @@
         data: function () {
             return {}
         },
-        methods: {},
+        methods: {
+            deleteFilm(actor) {
+                axios.delete('./actor/'+actor.slug).then(response => {
+                    console.log(response)
+                });
+                window.location.reload()
+            }
+        },
     };
 </script>
 

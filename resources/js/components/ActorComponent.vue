@@ -23,9 +23,11 @@
                         </div>
                         <div class="level-right">
                             <div class="control">
-                                <button @click="modifyActor(actor)" class="button is-success is-outlined">
-                                    Modify
-                                </button>
+                                <a :href="'./actor/' + actor.slug + '/edit'">
+                                    <button class="button is-success is-outlined">
+                                        Modify
+                                    </button>
+                                </a>
                                 <button @click="deleteActor(actor)" class="button is-danger is-outlined">
                                     Delete
                                 </button>
@@ -47,7 +49,7 @@
         },
         methods: {
             deleteActor(actor) {
-                axios.delete('./actor/'+actor.slug).then(response => {
+                axios.delete('./actor/' + actor.slug).then(response => {
                     console.log(response)
                 });
                 window.location.reload()
