@@ -142,8 +142,8 @@
     </div>
 
     <footer class="footer">
-        <div class="content has-text-centered">
-            <small>Here comes some footer</small>
+        <div class="content has-text-centered level-right">
+            <small>Designed by: Igor, Philip and Martin</small>
         </div>
     </footer>
 </div>
