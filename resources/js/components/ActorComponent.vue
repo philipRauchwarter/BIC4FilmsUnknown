@@ -23,10 +23,10 @@
                         </div>
                         <div class="level-right">
                             <div class="control">
-                                <button @click="modifyActor(actor.id)" class="button is-success is-outlined">
+                                <button @click="modifyActor(actor)" class="button is-success is-outlined">
                                     Modify
                                 </button>
-                                <button @click="deleteActor(actor.id)" class="button is-danger is-outlined">
+                                <button @click="deleteActor(actor)" class="button is-danger is-outlined">
                                     Delete
                                 </button>
                             </div>
@@ -45,7 +45,17 @@
         data: function () {
             return {}
         },
-        methods: {},
+        methods: {
+            deleteActor(actor) {
+                this.$emit('open-modal',
+                    {
+                        id: actor.id,
+                        title: actor.title,
+                        content: 'Do you really want to delete this actor?',
+                        url: '/actor/' + actor.slug
+                    });
+            }
+        },
     };
 </script>
 
