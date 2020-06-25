@@ -8,15 +8,19 @@
                 </div>
             </div>
             <div class="field">
-                <label class="label">Description</label>
-                <div class="control">
-                    <textarea class="textarea" v-model="description" rows="5"/>
+                <label class="label">Film</label>
+                <div class="select">
+                    <select v-model="film_id">
+                        <option v-for="film in films" :value="film.id">
+                            {{film.name}}
+                        </option>
+                    </select>
                 </div>
             </div>
             <div class="field">
-                <label class="label">Enter Film Id</label>
-                <div class="field">
-                    <input class="input" type="text" v-model='film_id' name="film_id">
+                <label class="label">Description</label>
+                <div class="control">
+                    <textarea class="textarea" v-model="description" rows="5"/>
                 </div>
             </div>
             <div class="control">
@@ -28,9 +32,7 @@
 </template>
 
 <script>
-
     import Form from "../utilities/Form";
-
     export default {
         data() {
             return {
@@ -44,8 +46,11 @@
                 },
             }
         },
+
         methods: {
+
             createActor: function () {
+
                 let data = {
                     name: this.name,
                     description: this.description,
@@ -54,12 +59,18 @@
                 let form = new Form(data);
                 form.post('/actor')
                     .catch(e => console.log(e));
-
                 this.name = '';
                 this.description = '';
                 this.film_id = '';
-            },
-        }
-    }
+            }
+        },
+        created() {
+            axios.get('/list/film')
+                .then(response => {
+                    this.films = response.data;
 
+                });
+        }
+
+    }
 </script>
