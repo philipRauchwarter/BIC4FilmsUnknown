@@ -18,9 +18,9 @@
                     <div class="level">
                         <div class="level-left">
                             <div class="level-item">
-                                Created: {{film.created_at | moment('DD.MM.YYYY') }}
+                                Created: {{film.created_at | moment('DD.MM.YYYY, hh:mm') }}
                                 <br>
-                                Last Modified: {{film.updated_at | moment('DD.MM.YYYY') }}
+                                Last Modified: {{film.updated_at | moment('DD.MM.YYYY, hh:mm') }}
                             </div>
                         </div>
                         <div class="level-right">

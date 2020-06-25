@@ -1,5 +1,5 @@
 <template>
-    <a href="ActorComponent.vue">
+    <a href="actor/">
     <small>
         {{actor.name}}
     </small>
